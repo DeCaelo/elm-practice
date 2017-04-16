@@ -67,36 +67,46 @@ import Html.Attributes exposing (..)
 -- renderDog dog =
 --     dog.name ++ ", " ++ (toString dog.age)
 
-type alias Ship =
-    { name: String
-    , model : String
-    , cost: Int
-    }
+-- type alias Ship =
+--     { name: String
+--     , model : String
+--     , cost: Int
+--     }
 
-ships =
-    [ { name = "X-wing", cost = 149999 }
-    , { name = "Millenium Falcon", cost = 100000 }
-    , { name = "Death Star", cost = 1000000000000 }
-    ]
+-- ships =
+--     [ { name = "X-wing", cost = 149999 }
+--     , { name = "Millenium Falcon", cost = 100000 }
+--     , { name = "Death Star", cost = 1000000000000 }
+--     ]
 
-renderShip ship =
-    li []
-        [ text ship.name
-        , text ", "
-        , b []
-            [ text <| toString ship.cost ]
-        ]
+-- renderShip ship =
+--     li []
+--         [ text ship.name
+--         , text ", "
+--         , b []
+--             [ text <| toString ship.cost ]
+--         ]
 
-renderShips ships = 
-    div 
-        [ style [( "font-family", "-apple-system" )
-            , ( "padding", "1em" )
-            ]
-        ] 
-        [ h1 [] [text "Ships"]
-        , ul [] (List.map renderShip ships)
-        ]
+-- renderShips ships = 
+--     div 
+--         [ style [( "font-family", "-apple-system" )
+--             , ( "padding", "1em" )
+--             ]
+--         ] 
+--         [ h1 [] [text "Ships"]
+--         , ul [] (List.map renderShip ships)
+--         ]
+
+numbers =
+    [1, 2, 3, 4, 5 ]
+
+printThing : thing -> Html msg
+printThing thing =
+    ul [] [text <| toString thing ]
+
+fruits =
+    [ { name = "Orange" }, { name= "Banana" } ]
 
 main = 
-    renderShips ships
+    ul [] (List.map printThing fruits)
     
