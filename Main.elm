@@ -1,7 +1,8 @@
 module Main exposing (..)
 
-import Html exposing (text)
-import List
+import Html exposing (..)
+import Html.Attributes exposing (..)
+-- import List
 
 -- politely : String -> String
 -- politely phrase =
@@ -52,20 +53,50 @@ import List
 --         Nothing
 --         peeps
 
-type alias Dog =
+-- type alias Dog =
+--     { name: String
+--     , age: Int
+--     }
+
+-- dog = 
+--     { name = "Spock"
+--     , age = 3
+--     }
+
+-- renderDog : Dog -> String
+-- renderDog dog =
+--     dog.name ++ ", " ++ (toString dog.age)
+
+type alias Ship =
     { name: String
-    , age: Int
+    , model : String
+    , cost: Int
     }
 
-dog = 
-    { name = "Spock"
-    , age = 3
-    }
+ships =
+    [ { name = "X-wing", cost = 149999 }
+    , { name = "Millenium Falcon", cost = 100000 }
+    , { name = "Death Star", cost = 1000000000000 }
+    ]
 
-renderDog : Dog -> String
-renderDog dog =
-    dog.name ++ ", " ++ (toString dog.age)
+renderShip ship =
+    li []
+        [ text ship.name
+        , text ", "
+        , b []
+            [ text <| toString ship.cost ]
+        ]
+
+renderShips ships = 
+    div 
+        [ style [( "font-family", "-apple-system" )
+            , ( "padding", "1em" )
+            ]
+        ] 
+        [ h1 [] [text "Ships"]
+        , ul [] (List.map renderShip ships)
+        ]
 
 main = 
-    text <| renderDog dog
+    renderShips ships
     
