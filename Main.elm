@@ -22,36 +22,50 @@ import List
 -- main = 
 --     text <| askPolitelyAboutFish "hat"
 
-type alias Person = 
+-- type alias Person = 
+--     { name: String
+--     , age: Int 
+--     }
+
+-- people = 
+--     [ { name = "Legolas", age = 2931 }
+--     , { name = "Gimli", age = 139 }
+--     ]
+
+-- names: List Person -> List String
+-- names peeps = 
+--     List.map (\peep -> peep.name) peeps
+
+-- findPerson : String -> List Person -> Maybe Person
+-- findPerson name peeps = List.foldl
+--     (\peep memo -> 
+--         case memo of
+--             Just _ -> 
+--                 memo
+            
+--             Nothing -> 
+--                 if peep.name == name then
+--                     Just peep
+--                 else 
+--                     Nothing
+--         )
+--         Nothing
+--         peeps
+
+type alias Dog =
     { name: String
-    , age: Int 
+    , age: Int
     }
 
-people = 
-    [ { name = "Legolas", age = 2931 }
-    , { name = "Gimli", age = 139 }
-    ]
+dog = 
+    { name = "Spock"
+    , age = 3
+    }
 
-names: List Person -> List String
-names peeps = 
-    List.map (\peep -> peep.name) peeps
-
-findPerson : String -> List Person -> Maybe Person
-findPerson name peeps = List.foldl
-    (\peep memo -> 
-        case memo of
-            Just _ -> 
-                memo
-            
-            Nothing -> 
-                if peep.name == name then
-                    Just peep
-                else 
-                    Nothing
-        )
-        Nothing
-        peeps
+renderDog : Dog -> String
+renderDog dog =
+    dog.name ++ ", " ++ (toString dog.age)
 
 main = 
-    text <| toString <| findPerson "Legolas" people
+    text <| renderDog dog
     
