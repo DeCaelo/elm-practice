@@ -1,8 +1,9 @@
 module Main exposing (..)
 
 import Html exposing (..)
-import Html exposing (beginnerProgram)
-import Html.Events exposing (..)
+import String.Extra exposing (pluralize)
+-- import Html exposing (beginnerProgram)
+-- import Html.Events exposing (..)
 -- import Html.Attributes exposing (..)
 -- import List
 
@@ -111,31 +112,35 @@ import Html.Events exposing (..)
 
 -- Four Parts
 
-model =
-    { showFace = False }
+-- model =
+--     { showFace = False }
 
-type Msg =
-    ShowFace
+-- type Msg =
+--     ShowFace
 
-update msg model_ =
-    case msg of
-        ShowFace -> { model_ | showFace = True }
+-- update msg model_ =
+--     case msg of
+--         ShowFace -> { model_ | showFace = True }
 
-view model_ =
-    div []
-        [ h1 [] [ text "Face generator" ]
-        , button [onClick ShowFace ] [ text "Face me" ]
-        , if model_.showFace then
-            text "ᕕ( ᐛ )ᕗ"
-            else
-                text ""
+-- view model_ =
+--     div []
+--         [ h1 [] [ text "Face generator" ]
+--         , button [onClick ShowFace ] [ text "Face me" ]
+--         , if model_.showFace then
+--             text "ᕕ( ᐛ )ᕗ"
+--             else
+--                 text ""
 
-        ]
+--         ]
+
+items =
+    [ "Green Eggs", "Green Ham" ]
 
 main = 
-    beginnerProgram
-        { model = model
-        , update = update 
-        , view = view
-        }
+    div []
+        [ h1 [] [ text <| (pluralize "Item" 
+            "Items" (List.length items)) 
+        ]
+        , text <| toString <| items
+        ]
     
