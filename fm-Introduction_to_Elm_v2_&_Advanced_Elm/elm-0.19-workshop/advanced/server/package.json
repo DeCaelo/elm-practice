@@ -21,7 +21,7 @@
   },
   "dependencies": {
     "bcrypt-nodejs": "0.0.3",
-    "jsonwebtoken": "8.5.1",
+    "jsonwebtoken": "9.0.0",
     "lodash": "4.17.21",
     "moleculer": "^0.13.11",
     "moleculer-db": "0.8.3",
